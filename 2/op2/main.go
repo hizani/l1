@@ -17,14 +17,10 @@ func main() {
 
 	for idx, num := range base {
 		go func(idx int, num int32) {
-			out[idx] = sqr(num)
+			out[idx] = num * num
 			wg.Done()
 		}(idx, num)
 	}
 	wg.Wait()
 	fmt.Println(out)
-}
-
-func sqr(num int32) int32 {
-	return num * num
 }
