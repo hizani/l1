@@ -6,10 +6,6 @@ import "fmt"
 
 type Set map[int]struct{}
 
-func NewSet() Set {
-	return make(Set)
-}
-
 func GetIntersection(s1 Set, s2 Set) Set {
 	interSet := make(Set)
 
@@ -34,8 +30,8 @@ func GetIntersection(s1 Set, s2 Set) Set {
 func main() {
 	nums1 := []int{1, 2, 4, 5}
 	nums2 := []int{-3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-	set1 := NewSet()
-	set2 := NewSet()
+	set1 := make(Set)
+	set2 := make(Set)
 	for _, v := range nums1 {
 		set1[v] = struct{}{}
 	}
