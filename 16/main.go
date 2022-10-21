@@ -1,3 +1,5 @@
+// Реализовать быструю сортировку массива (quicksort) встроенными методами языка.
+
 package main
 
 import "fmt"
@@ -11,19 +13,22 @@ func quickSort(l int, r int, slice []int) {
 	maxPtr := r
 	piv := slice[(maxPtr+minPtr)/2]
 
-	for slice[minPtr] < piv {
-		minPtr++
+	for minPtr <= maxPtr {
+		for slice[minPtr] < piv {
+			minPtr++
+		}
+		for slice[maxPtr] > piv {
+			maxPtr--
+		}
+		if minPtr <= maxPtr {
+			temp := slice[minPtr]
+			slice[minPtr] = slice[maxPtr]
+			slice[maxPtr] = temp
+			minPtr++
+			maxPtr--
+		}
 	}
-	for slice[maxPtr] > piv {
-		maxPtr--
-	}
-	if minPtr <= maxPtr {
-		temp := slice[minPtr]
-		slice[minPtr] = slice[maxPtr]
-		slice[maxPtr] = temp
-		minPtr++
-		maxPtr--
-	}
+
 	if l < maxPtr {
 		quickSort(l, maxPtr, slice)
 	}
