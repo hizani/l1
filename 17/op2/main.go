@@ -7,6 +7,7 @@ import (
 	"fmt"
 )
 
+// Как обычный масив
 func bs(slice []int, toFind int, l int, r int) (int, error) {
 	for l <= r {
 		piv := (l + r) / 2
