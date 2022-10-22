@@ -25,8 +25,9 @@ func BinarySearch(slice []int, toFind int) (int, error) {
 		return BinarySearch(slice[:piv], toFind)
 	}
 
-	num, err := BinarySearch(slice[piv+1:], toFind)
-	return piv + 1 + num, err
+	piv++
+	num, err := BinarySearch(slice[piv:], toFind)
+	return piv + num, err
 }
 
 func main() {
